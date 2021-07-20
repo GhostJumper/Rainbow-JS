@@ -1,0 +1,19 @@
+{
+  "name": "rainbow-js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "blueimp-md5": "^2.18.0",
+    "express": "^4.17.1",
+    "hash.js": "^1.1.7",
+    "mariadb": "^2.5.4",
+    "nodemon": "^2.0.12"
+  }
+}
