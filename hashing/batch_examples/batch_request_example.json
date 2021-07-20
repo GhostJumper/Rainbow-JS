@@ -1,0 +1,20 @@
+{
+  "req_list": [
+    {
+      "plain": "test123",
+      "algorithms": ["md5", "sha1"]
+    },
+    {
+      "plain": "test1234",
+      "algorithms": ["md5"]
+    },
+    {
+      "plain": "test12345",
+      "algorithms": []
+    },
+    {
+      "plain": "test123456",
+      "algorithms": ["invalid", "md5"]
+    }
+  ]
+}

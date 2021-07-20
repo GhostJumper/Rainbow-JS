@@ -35,11 +35,11 @@ async function getRainbowRow(plain_text) {
 async function insertAlreadyHashed(hashes) {
     try {
         let conn = await pool.getConnection()
-        await conn.query("INSERT INTO rainbowtable (`plain_text`, `md5`, `sha1`, `sha256`, `sha512`) VALUES ('"+hashes.plain_text+"', '"+hashes.md5+"', '"+hashes.sha1+"', '"+hashes.sha256+"', '"+hashes.sha512+"')")
+        await conn.query("INSERT INTO rainbowtable (`plain_text`, `md5`, `sha1`, `sha256`, `sha512`) VALUES ('" + hashes.plain_text + "', '" + hashes.md5 + "', '" + hashes.sha1 + "', '" + hashes.sha256 + "', '" + hashes.sha512 + "')")
 
     } catch (err) {
         console.log(err)
     }
 }
 
-module.exports = {requestHashResult, getRainbowRow ,insertAlreadyHashed}
+module.exports = {requestHashResult, getRainbowRow, insertAlreadyHashed}

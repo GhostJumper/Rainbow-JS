@@ -3,14 +3,13 @@ const app = express()
 const port = process.env.port || 8081
 
 
-const create_hash = require("./routes/create_hash")
 const search_hash = require("./routes/search_hash")
-
+//const create_hash = require("./routes/create_hash") //TODO: implement
 
 app.use("/search", search_hash)
-app.use("/create", create_hash)
+//app.use("/create", create_hash) //TODO: implement
 
-app.get('/', (req,res) => {
+app.get('/', (req, res) => {
     res.status(200).send("")
 })
 
