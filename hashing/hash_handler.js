@@ -8,7 +8,7 @@ async function manageOne(plain_text, algorithm) {
     if (typeof algorithm === 'undefined') {
         return hashes
     } else {
-        if (typeof hash.known_algorithms[algorithm] === 'undefined') throw Error(`the algorithm "${algorithm}" is unsupported`)
+        if (!(algorithm in hash.known_algorithms)) throw Error(`the algorithm "${algorithm}" is unsupported`)
         return {[algorithm]: hashes[algorithm]}
     }
 
