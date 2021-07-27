@@ -8,8 +8,8 @@ async function manageBatch(batch) {
     let result = {"res_list": [], "err_list": []}
 
     for (const entry of batch.req_list) {
-        if (typeof entry.plain !== 'undefined' && typeof entry.algorithms !== 'undefined') {
-            result.res_list.push(await createBatchEntry(entry.plain, entry.algorithms))
+        if (typeof entry.plain_text !== 'undefined' && typeof entry.algorithms !== 'undefined') {
+            result.res_list.push(await createBatchEntry(entry.plain_text, entry.algorithms))
         } else
             result.err_list.push(entry)
     }
@@ -20,7 +20,7 @@ async function manageBatch(batch) {
 
 async function createBatchEntry(plain_text, algorithms) {
     return {
-        "plain": plain_text,
+        "plain_text": plain_text,
         "res": filterResultByAlgorithms(await hashOneToDB(plain_text), algorithms)
     }
 }
