@@ -4,10 +4,10 @@ const port = process.env.port || 8081
 
 
 const search_hash = require("./routes/search_hash")
-//const create_hash = require("./routes/create_hash") //TODO: implement
+const create_hash = require("./routes/create_hash")
 
 app.use("/search", search_hash)
-//app.use("/create", create_hash) //TODO: implement
+app.use("/create", create_hash)
 
 app.get('/', (req, res) => {
     res.status(200).send("")

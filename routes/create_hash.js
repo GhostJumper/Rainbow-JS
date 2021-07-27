@@ -15,11 +15,17 @@ router.get("/", async (req, res) => {
 
 })
 
-/* //TODO: implement
+
 router.get("/batch", async (req, res) => {
-    res.send(req.body)
+    try {
+
+        res.send(await hash_handler.manageBatch(req.body))
+    } catch (err) {
+        res.status(400).send(err.message)
+    }
+
 })
 
- */
+
 
 module.exports = router

@@ -12,6 +12,7 @@ async function requestHashResult(algorithm, hash) {
     try {
         let conn = await pool.getConnection()
         let rows = await conn.query("SELECT plain_text FROM rainbowtable WHERE " + algorithm + " LIKE \"" + hash + "\"")
+        await conn.end()
         return rows[0].input
 
     } catch (err) {
@@ -24,6 +25,7 @@ async function getRainbowRow(plain_text) {
     try {
         let conn = await pool.getConnection()
         let rows = await conn.query("SELECT * FROM rainbowtable WHERE plain_text LIKE \"" + plain_text + "\"")
+        await conn.end()
         return rows[0]
 
     } catch (err) {
@@ -36,7 +38,7 @@ async function insertAlreadyHashed(hashes) {
     try {
         let conn = await pool.getConnection()
         await conn.query("INSERT INTO rainbowtable (`plain_text`, `md5`, `sha1`, `sha256`, `sha512`) VALUES ('" + hashes.plain_text + "', '" + hashes.md5 + "', '" + hashes.sha1 + "', '" + hashes.sha256 + "', '" + hashes.sha512 + "')")
-
+        await conn.end()
     } catch (err) {
         console.log(err)
     }

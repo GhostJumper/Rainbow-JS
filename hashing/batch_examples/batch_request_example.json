@@ -15,6 +15,12 @@
     {
       "plain": "test123456",
       "algorithms": ["invalid", "md5"]
+    },
+    {
+      "nix": ""
+    },
+    {
+
     }
   ]
 }
