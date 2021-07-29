@@ -2,6 +2,7 @@ const db = require("../db/maria_db")
 const hash = require("./hashing")
 const e = require("express");
 
+//Manages the request body of an http request to extract and manage found plain text and return wanted hashes
 async function manageBatch(req_body) {
     if (typeof req_body.req_list === 'undefined') throw Error(`couldn't find req_list`)
     let result = {"res_list": [], "err_list": []}
@@ -13,6 +14,7 @@ async function manageBatch(req_body) {
     return result
 }
 
+//Manages one entry to return thw wanted results
 async function manageOne(req_body_entry, result) {
 
     if (typeof req_body_entry.plain_text !== "undefined" && typeof req_body_entry.algorithms !== "undefined") {
@@ -22,9 +24,10 @@ async function manageOne(req_body_entry, result) {
     return result
 }
 
+//Filters all hash results by n algorithms
 function filterAlgorithms(hashes, algorithms) {
-    let result = {"plain_text": hashes.plain_text}
     if (algorithms.length === 0) return hashes
+    let result = {"plain_text": hashes.plain_text}
     algorithms.forEach(algorithm => {
         if (typeof hashes[algorithm] === "undefined") {
             result[algorithm] = null
