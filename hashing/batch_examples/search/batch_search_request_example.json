@@ -1,0 +1,31 @@
+{
+  "req_list": [
+    {
+      "hash": "0cc175b9c0f1b6a831c399e269772661",
+      "algorithm": "md5"
+    },
+    {
+      "hash": "e9d71f5ee7c92d6dc9e92ffdad17b8bd49418f98",
+      "algorithm": "sha1"
+    },
+    {
+      "hash": "5267768822ee624d48fce15ec5ca79cbd602cb7f4c2157a516556991f22ef8c7b5ef7b18d1ff41c59370efb0858651d44a936c11b7b144c48fe04df3c6a3e8da",
+      "algorithm": "sha512"
+    },
+    {
+      "hash": "invalid",
+      "algorithm": "md5"
+    },
+    {
+      "hash": "0cc175b9c0f1b6a831c399e269772661"
+    },
+    {
+      "algorithm": "md5"
+    },
+    {
+      "something": "something"
+    },
+    {
+    }
+  ]
+}
