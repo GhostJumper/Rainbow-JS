@@ -13,7 +13,9 @@ async function requestHashResult(algorithm, hash) {
         let conn = await pool.getConnection()
         let rows = await conn.query("SELECT plain_text FROM rainbowtable WHERE " + algorithm + " LIKE \"" + hash + "\"")
         await conn.end()
-        return rows[0].input
+        if (typeof rows[0] !== "undefined" && typeof rows[0].plain_text !== "undefined") {
+            return rows[0].plain_text
+        } else return null
 
     } catch (err) {
         console.log(err)

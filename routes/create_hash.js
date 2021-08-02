@@ -1,7 +1,7 @@
 const express = require("express")
 let router = express.Router()
 
-let hash_handler = require("../hashing/hash_handler")
+let hash_handler = require("../hashing/handlers/create_hash_handler")
 
 router.use(express.json())
 

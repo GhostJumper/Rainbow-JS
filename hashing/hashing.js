@@ -32,4 +32,18 @@ function hashAll(plain_text) {
     return result
 }
 
-module.exports = {hashAll, known_algorithms}
+//Filters all hash results by n algorithms
+function filterAlgorithms(hashes, algorithms) {
+    if (algorithms.length === 0) return hashes
+    let result = {"plain_text": hashes.plain_text}
+    algorithms.forEach(algorithm => {
+        if (typeof hashes[algorithm] === "undefined") {
+            result[algorithm] = null
+        } else result[algorithm] = hashes[algorithm]
+    })
+
+    return result
+
+}
+
+module.exports = {hashAll, filterAlgorithms, known_algorithms}
